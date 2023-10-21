@@ -1,26 +1,20 @@
 pipeline {
     agent any
-
+    parameters {
+        string(name: 'PERSONNE', defaultValue: 'M. Jenkins', description: 'À qui devrais-je dire bonjour ?')
+        text(name: 'BIOGRAPHIE', defaultValue: '', description: 'Entrez des informations sur la personne')
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Activez cette valeur')
+        choice(name: 'CHOIX', choices: ['Un', 'Deux', 'Trois'], description: 'Faites un choix')
+        password(name: 'MOT_DE_PASSE', defaultValue: 'SECRET', description: 'Entrez un mot de passe')
+    }
     stages {
-        stage('Build') {
+        stage('Exemple') {
             steps {
-                echo 'Étape de construction en cours...'
-                // Ici, vous pouvez ajouter les commandes pour compiler votre projet
-                // Par exemple : npm run build
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Étape de test en cours...'
-                // Ici, vous pouvez ajouter les commandes pour tester votre projet
-                // Par exemple : npm test
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Étape de déploiement en cours...'
-                // Ici, vous pouvez ajouter les commandes pour déployer votre projet
-                // Par exemple : sh 'make deploy'
+                echo "Bonjour ${params.PERSONNE}"
+                echo "Biographie : ${params.BIOGRAPHIE}"
+                echo "Toggle : ${params.TOGGLE}"
+                echo "Choix : ${params.CHOIX}"
+                echo "Mot de passe : ${params.MOT_DE_PASSE}"
             }
         }
     }
