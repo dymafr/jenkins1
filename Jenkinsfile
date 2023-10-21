@@ -11,10 +11,10 @@ pipeline {
         stage('Exemple') {
             steps {
                 echo "Bonjour ${PERSONNE}"
-                echo "Biographie : ${params.BIOGRAPHIE}"
-                echo "Toggle : ${params.TOGGLE}"
-                echo "Choix : ${params.CHOIX}"
-                echo 'Mot de passe : ${MOT_DE_PASSE}'
+                echo "Biographie : ${BIOGRAPHIE}"
+                echo "Toggle : ${TOGGLE}"
+                echo "Choix : ${CHOIX}"
+                echo "Mot de passe : ${MOT_DE_PASSE}"
             }
         }
     }
