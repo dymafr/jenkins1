@@ -3,7 +3,7 @@
     stages {
         stage('Build et Test') {
             steps {
-                // Votre code pour construire et tester
+                echo 'Build et Test'
             }
         }
         stage('Déploiement en Production') {
